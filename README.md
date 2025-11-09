@@ -1,4 +1,4 @@
-# Eventify (Minimal Stack)
+# Eventify
 
 **Eventify** is a minimal event-management portal built for college campuses.  
 It provides event discovery, one-click student registration with downloadable QR tickets, QR-based check-in for organizers, and a simple organizer dashboard showing registration and attendance metrics.
