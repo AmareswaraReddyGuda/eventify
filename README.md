@@ -17,35 +17,35 @@ It provides event discovery, one-click student registration with downloadable QR
 ---
 
 ## Tech stack (minimal, team-friendly)
-- **Backend:** Flask (Python)  
-- **Database:** MySQL (via SQLAlchemy + `pymysql`)  
-- **Frontend:** Jinja2 templates + Bootstrap (no heavy frontend framework)  
-- **QR generation:** Python `qrcode` library  
-- **QR scanning:** `html5-qrcode` (client-side JS)  
-- **Dev tooling (optional):** Docker Compose for local MySQL  
-- **Version control:** Git + GitHub
+- **Frontend**: HTML5, CSS3 (Flexbox/Grid), JavaScript (Vanilla)
+- **Backend**: Flask (Python)
+- **Database**: MySQL (via SQLAlchemy + `pymysql`)
+- **QR Generation**: Python `qrcode` library
+- **QR Scanning**: `html5-qrcode` (client-side JS)
+- **Email**: Flask-Mail or SendGrid/Resend API
+- **Dev Tooling**: Docker Compose for local MySQL
+- **Version Control**: Git + GitHub
 
 ---
 
 ## Repo contents (top-level)
 ```
 eventify/
-  app.py                  # main Flask app (starter)
-  requirements.txt        # Python dependencies
-  docker-compose.yml      # local MySQL (optional)
-  generate_qr.py          # quick QR generator for testing
-  templates/              # Jinja2 HTML templates (Bootstrap)
-  static/                 # static assets (CSS/JS/images)
-  docs/
-    SRS.md
-    ERD.png
-    QA.md
-  .gitignore
-  README.md
-  .env.example
-```
+  app/
+    __init__.py
+    models.py
+    routes/
+      __init__.py
+      auth.py
+      events.py
+      dashboard.py
+    templates/
+    static/
+    utils/
+      email_utils.py
+      qr_utils.py
 
----
+```
 
 ## Quick start (development)
 > Requirements: Python 3.10+ installed. Docker recommended but optional.
@@ -153,14 +153,6 @@ DATABASE_URL=mysql+pymysql://eventify_user:yourpassword@127.0.0.1:3306/eventify_
 - **Auth & Email Lead:** Signup/login (Flask-Login), password hashing, email confirmations  
 - **Scanner & QA Lead:** `html5-qrcode` integration, testcases, cross-device QA  
 - **Docs & Deployment Lead:** README, SRS, ERD, Docker/Deploy steps
-
----
-
-## Next immediate tasks (Week 2)
-- Implement signup/login (Flask-Login) and user model.  
-- Implement event model and event listing page.  
-- Implement registration endpoint that creates a `Registration` record and returns a QR PNG.  
-- Implement a simple organizer scanner page (frontend skeleton) to test `html5-qrcode`.
 
 ---
 
